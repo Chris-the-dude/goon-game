@@ -61,12 +61,12 @@
   }
 
   /* YouTube */
-  #youtubeSection { width:100%; text-align:center; }
-  #youtubeSection input { width:60%; padding:10px; margin-right:10px; border-radius:5px; border:1px solid #ccc; }
+  #youtubeSection { width:100%; display:flex; flex-direction:column; align-items:center; text-align:center; }
+  #youtubeSection input { width:60%; padding:10px; margin:10px 0; border-radius:5px; border:1px solid #ccc; }
   body.dark #youtubeSection input { background:#333; color:#fff; border:1px solid #666; }
   body.light #youtubeSection input { background:#fff; color:#000; border:1px solid #ccc; }
 
-  #youtubeSection button { padding:10px 15px; border:none; border-radius:5px; background:#555; color:#fff; cursor:pointer; }
+  #youtubeSection button { padding:10px 15px; border:none; border-radius:5px; background:#555; color:#fff; cursor:pointer; margin-bottom:10px; }
   body.dark #youtubeSection button { background:#888; color:#000; }
 
   #youtubeSection iframe { width:100%; max-width:800px; height:450px; margin-top:20px; border:none; border-radius:5px; }
@@ -127,9 +127,11 @@ function switchTab(tab, element) {
 
   if(tab === 'youtube') {
     main.innerHTML = `
-      <input id="urlInput" placeholder="Paste YouTube URL here">
-      <button onclick="loadVideo()">Watch</button>
-      <div id="videoContainer"></div>`;
+      <div id="youtubeSection">
+        <input id="urlInput" placeholder="Paste YouTube URL here">
+        <button onclick="loadVideo()">Watch</button>
+        <div id="videoContainer"></div>
+      </div>`;
   } 
   else if(tab === 'games') {
     main.innerHTML = `<iframe id="gamesIframe" src="https://1v1-lol-online.github.io/" allowfullscreen></iframe>`;

@@ -18,6 +18,10 @@
     padding:10px 20px;
     background:#d3d3d3;
     color:#000;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
   }
   body.dark header { background:#000; color:#fff; }
 
@@ -51,31 +55,66 @@
   #moonIcon { cursor:pointer; font-size:1.5rem; }
 
   main {
-    padding:20px;
     display:flex;
-    justify-content:center;
-    align-items:flex-start;
-    height:calc(100vh - 60px);
-    position: relative;
     flex-direction:column;
+    height: calc(100vh - 60px);
+    background: #eee;
+    position: relative;
+  }
+  body.dark main { background:#222; }
+
+  /* YouTube Section Fullscreen Video */
+  #youtubeSection {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
   }
 
-  /* YouTube */
-  #youtubeSection { width:100%; display:flex; flex-direction:column; align-items:center; text-align:center; }
-  #youtubeSection input { width:60%; padding:10px; margin:10px 0; border-radius:5px; border:1px solid #ccc; }
-  body.dark #youtubeSection input { background:#333; color:#fff; border:1px solid #666; }
-  body.light #youtubeSection input { background:#fff; color:#000; border:1px solid #ccc; }
+  #urlInput {
+    width:60%;
+    max-width: 600px;
+    padding:10px;
+    margin-bottom:10px;
+    border-radius:5px;
+    border:1px solid #ccc;
+  }
+  body.dark #urlInput { background:#333; color:#fff; border:1px solid #666; }
+  body.light #urlInput { background:#fff; color:#000; border:1px solid #ccc; }
 
-  #youtubeSection button { padding:10px 15px; border:none; border-radius:5px; background:#555; color:#fff; cursor:pointer; margin-bottom:10px; }
+  #youtubeSection button {
+    padding:10px 15px;
+    border:none;
+    border-radius:5px;
+    background:#555;
+    color:#fff;
+    cursor:pointer;
+    margin-bottom:10px;
+  }
   body.dark #youtubeSection button { background:#888; color:#000; }
 
-  #youtubeSection iframe { width:100%; max-width:800px; height:450px; margin-top:20px; border:none; border-radius:5px; }
+  #videoContainer {
+    flex: 1;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  #videoContainer iframe {
+    width: 100%;
+    height: 100%;
+    max-width: 100%;
+    max-height: 100%;
+    border: none;
+    border-radius:5px;
+    object-fit: cover;
+  }
 
   /* Embedded iframes */
   #gamesIframe, #soundboardIframe { width:100%; height:100%; border:none; border-radius:5px; }
-
-  body.light main { background:#eee; }
-  body.dark main { background:#222; }
 </style>
 </head>
 <body class="light">
